@@ -1,0 +1,94 @@
+/* style the gallery*/
+
+*{
+    box-sizing: content-box;
+    
+}
+
+.serch-area{
+
+    display: flex;
+    justify-content: center;   
+    align-items: center;
+    height: 40vw;
+    width: auto;
+    background-image: url(/img/header-background2.jpg); 
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.wrapper{
+    width: 600px;
+    
+}
+#start-flickr{
+    padding: 10px;
+    border-radius: 10px;
+    
+   
+}
+#serch-fild{
+    padding: 10px;
+    width: 300px;
+    flex: 2 1 auto; 
+    border-radius: 20px;
+
+  
+
+}
+#number-of-pics{
+    padding: 10px;
+    border-radius: 20px;
+}
+
+#start-flickr {
+    color: rgb(255, 255, 255); 
+    font-size: 16px; 
+    line-height: 16px; 
+    padding: 6px; 
+    border-radius: 10px; 
+    font-family: Georgia, serif; 
+    font-weight: normal; text-decoration: none; 
+    font-style: normal; 
+    font-variant: normal; 
+    text-transform: none; 
+    background-image:linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); 
+    box-shadow: rgb(154, 153, 153) 5px 5px 15px 5px; 
+    border: 2px solid rgb(28, 110, 164); 
+    display: inline-block;}
+
+#start-flickr:hover {
+    background: #1C6EA4; }
+
+#start-flickr:active {
+    background: #144E75; }
+
+.gallery{
+    padding:20px;
+    width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: repeat(auto, 250px);
+    grid-gap: 10px 10px;
+    overflow: hidden;
+    
+
+    
+  
+    
+}
+.gallery  img{
+    justify-self: center;
+    height: 250px;
+    width: 250px;
+    transition: 1s;
+   
+    
+}
+.gallery img:hover{
+    filter: grayscale(100%);
+    transform: scale(1.1);
+}
