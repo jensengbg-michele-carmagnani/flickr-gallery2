@@ -2,8 +2,8 @@
 
 
 const photoElement = document.getElementById('gallery');
-const flickrButton = document.getElementById('start-flickr')
-console.log(flickrButton);
+const flickrButton = document.getElementById('start-flickr');
+
 
 // Cration of the html element and display the photos
 function displayPhotos(photo){
@@ -15,11 +15,14 @@ function displayPhotos(photo){
     //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 	
     let photoUrl = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_c.jpg`
-    photoElement.innerHTML += `<img src=${photoUrl}>`;
-    console.log('url',photoUrl);
+    photoElement.innerHTML += `<a href=${photoUrl}><img src=${photoUrl} class"LightBox"></a>`;
+    // let att = createAttribute("class");
+    // att.value ="imgStyle";
+    // photoElement.setAttributeNode(att);
+    // console.log('url',photoUrl);
    
 }
-
+//
 
 
 // we loop the arry of the photos that we received from the fetching
@@ -27,8 +30,13 @@ function displayPhotos(photo){
      photoElement.innerHTML = '';
     for(let i = 0; i < objectPhots.photos.photo.length; i++){
         displayPhotos(objectPhots.photos.photo[i]);
-       console.log('pizza calzone');
     }
+    // let imgTag = document.getElementsByTagName('img');
+    // console.log(imgTag);    
+    // imgTag.addEventListener('click', ()=> {
+        
+    // })
+   
 }
 
 
