@@ -3,23 +3,25 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--  lightbox css through a website (CDN). -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css">
         <link rel="stylesheet" href="css/stylesheet.css">
         <title>Final assignment JavaScript</title>
     </head>
     <body>
-        <header class="serch-area"  >
-        <div class="wrapper__serch">
-            <button id="start-flickr">SEARCH</button>
-            <input id="serch-fild" type="text" placeholder="title" >
-            <input id="number-of-pics" type="text" placeholder="n pics" >
-        </div>
+        <header class="search-area">
+            <div class="wrapper_search">
+                <input id="search-field" type="text" placeholder="title" >
+                <input id="number-of-pics" type="text" placeholder="n pics" >
+                <button id="search-button">SEARCH</button>
+            </div>
         </header>
         <main>
             <section id="gallery" class="gallery">
-                
-            </section>
         </main>
+         <!-- Added the lightbox JS through a website (CDN)  -->
+        <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
         <script src="js/index.js"></script>
     </body>
 </html>
-

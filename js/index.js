@@ -1,69 +1,68 @@
 /**Final javascript assignmet **/
 
 
-const photoElement = document.getElementById('gallery');
-const flickrButton = document.getElementById('start-flickr');
-
+// Get the gallery container so you can add the images to it
+const searchResultsContainer = document.getElementById('gallery');
+const searchButton = document.getElementById('search-button')
 
 // Cration of the html element and display the photos
 function displayPhotos(photo){
+
+// Pick out the variablues through deconstruct
+    const { farm, server, id, secret } = photo;
     
-    let farm = photo.farm;
-    let server = photo.server;
-    let id = photo.id;
-    let secret = photo.secret;
-    //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
+  
+//https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 	
     let photoUrl = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_c.jpg`
-    photoElement.innerHTML += `<a href=${photoUrl}><img src=${photoUrl} class"LightBox"></a>`;
-    // let att = createAttribute("class");
-    // att.value ="imgStyle";
-    // photoElement.setAttributeNode(att);
-    // console.log('url',photoUrl);
-   
+
+    searchResultsContainer.innerHTML += `<a href="${photoUrl}" data-lightbox="flickr-results" class="glightbox"><img src=${photoUrl}></a>`;
 }
-//
 
-
-// we loop the arry of the photos that we received from the fetching
+//  looping  the arry of the photos that we received from the fetching
  function  loopGallery( objectPhots){
-     photoElement.innerHTML = '';
+    searchResultsContainer.innerHTML = '';
     for(let i = 0; i < objectPhots.photos.photo.length; i++){
         displayPhotos(objectPhots.photos.photo[i]);
+      
     }
-    // let imgTag = document.getElementsByTagName('img');
-    // console.log(imgTag);    
-    // imgTag.addEventListener('click', ()=> {
-        
-    // })
-   
 }
 
+// Init the lightbox
+function initLightbox() {
+    GLightbox();
+}
 
 // assign
 async function getGallery(tagsValue,numberPics){
     
+    // Some hints: Here you can set that the search results are loading "Loading images..", when the search result is done you can remove it. 
+
     try{
         //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_[mstzb].jpg
-        
-        //const url = await fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=3c3f8e9aca23972524acea0d266fe266&tags=${tagsValue}&format=json&nojsoncallback=1`);
-        //const url = await fetch(`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=19d3e6e0acfe9c438f368e2c2bab1c5d&tags=${tagsValuez}&per_page=&format=rest`);
         const url = await fetch (`https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=19d3e6e0acfe9c438f368e2c2bab1c5d&tags=${tagsValue}&per_page=${numberPics}&format=json&nojsoncallback=1`);    
         const data = await url.json();
         console.log(data);
         loopGallery(data);
+
+
+        // Init the lightbox code after the images has been fetched
+        initLightbox();
+
+        // Some hints: Here you can set that the search results isnt loading anymore
+
         return(data);
     
     } catch(error){
-        console.log('Error', error);
+        alert('Unfortunatly occured and error please reload the page', error);
         
         
      }
 }
   
 
-flickrButton.addEventListener('click', function() {
-    let serchValue = document.querySelector('#serch-fild').value;
+searchButton.addEventListener('click', function() {
+    let searchValue = document.querySelector('#search-field').value;
     let numberPics = document.querySelector('#number-of-pics').value;
-    getGallery(serchValue,numberPics);
+    getGallery(searchValue,numberPics);
 });
