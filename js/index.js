@@ -36,7 +36,7 @@ function initLightbox() {
 // assign
 async function getGallery(tagsValue,numberPics){
     
-    // I'd like set  "search results are loading "Loading images..", when the search result is done you can remove it" 
+    // I'd like set  "search results are loading "Loading images..", when the search result is done remove it" 
 
     try{
         //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}_[mstzb].jpg
