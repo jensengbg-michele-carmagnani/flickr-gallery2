@@ -98,7 +98,7 @@
     .gallery{
        
         width: auto;
-        grid-template-columns: repeat(2, 250px);
+        grid-template-columns: repeat(2, 1fr);
         
     }
     .search-area{
@@ -131,7 +131,7 @@
     .gallery{
        
         width: auto;
-        grid-template-columns: repeat(1, 250px);
+        grid-template-columns: repeat(1, 1fr);
         
     }
 
