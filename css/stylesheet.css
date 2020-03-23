@@ -5,12 +5,12 @@
     
 }
 
-.serch-area{
+.search-area{
 
     display: flex;
     justify-content: center;   
     align-items: center;
-    height: 40vw;
+    height: 30vw;
     width: auto;
     background-image: url(/img/header-background2.jpg); 
     background-attachment: fixed;
@@ -19,20 +19,16 @@
     background-size: cover;
 }
 
-.wrapper{
-    width: 600px;
+.wrapper_search{
+    display: flex;
+    width: auto;
+    margin: auto;
     
 }
-#start-flickr{
+
+#search-field{
     padding: 10px;
-    border-radius: 10px;
-    
-   
-}
-#serch-fild{
-    padding: 10px;
-    width: 300px;
-    flex: 2 1 auto; 
+    width: 300px; 
     border-radius: 20px;
 
   
@@ -43,7 +39,7 @@
     border-radius: 20px;
 }
 
-#start-flickr {
+#search-button {
     color: rgb(255, 255, 255); 
     font-size: 16px; 
     line-height: 16px; 
@@ -57,6 +53,7 @@
     background-image:linear-gradient(to right, rgb(28, 110, 164) 0%, rgb(35, 136, 203) 50%, rgb(20, 78, 117) 100%); 
     box-shadow: rgb(154, 153, 153) 5px 5px 15px 5px; 
     border: 2px solid rgb(28, 110, 164); 
+    margin-left: 4px;
     display: inline-block;}
 
 #start-flickr:hover {
@@ -74,11 +71,6 @@
     grid-template-rows: repeat(auto, 250px);
     grid-gap: 10px 10px;
     overflow: hidden;
-    
-
-    
-  
-    
 }
 .gallery  img{
     justify-self: center;
@@ -91,5 +83,57 @@
 .gallery img:hover{
     filter: grayscale(100%);
     transform: scale(1.1);
+}
+
+ @media only screen and (max-width: 600px) {
+    
+    .wrapper_search{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 150px;
+        margin: auto;
+        
+    }
+    .gallery{
+       
+        width: auto;
+        grid-template-columns: repeat(2, 250px);
+        
+    }
+    .search-area{
+        height: 40vw;
+    }
+    
+    img{
+        height: 250 px;
+        width: 250px;
+        transition: 1s;
+        grid-area: main;
+        justify-self: center;
+        margin:auto;
+        
+    }
+    #search-field{
+        margin-bottom: 5px;
+        width: auto; 
+        border-radius: 20px;
+    
+}
+   
+    #number-of-pics{
+        margin-bottom: 5px;
+        border-radius: 20px;
+    }
+}
+@media only screen and (max-width: 420px) {
+
+    .gallery{
+       
+        width: auto;
+        grid-template-columns: repeat(1, 250px);
+        
+    }
+
 }
 
