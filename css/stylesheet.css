@@ -78,6 +78,7 @@
     height: 250px;
     width: 250px;
     transition: 1s;
+    cursor: pointer;
    
     
 }

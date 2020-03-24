@@ -1,0 +1,26 @@
+/* LighBox style */
+
+#lightBox{
+    position: fixed;
+    z-index: 1000;
+    top: 0;;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: none;
+}
+
+#lightBox.active{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+
+}
+#lightBox img{
+    max-width:  90%;
+    max-height: 80%;
+    padding: 4px ;
+    background: black;
+    border: 2px solid white;
+
+}

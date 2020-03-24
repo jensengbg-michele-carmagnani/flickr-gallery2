@@ -1,5 +1,7 @@
+
 /**Final javascript assignmet **/
 
+import { lightBox2 } from "./module/lightBox.js";
 
 // Get the gallery container so you can add the images to it
 const searchResultsContainer = document.getElementById('gallery');
@@ -14,9 +16,10 @@ function displayPhotos(photo){
   
 //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 	
-    let photoUrl = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_c.jpg`
+    let photoUrl = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_c.jpg`;
 
-    searchResultsContainer.innerHTML += `<a href="${photoUrl}" data-lightbox="flickr-results" class="glightbox"><img src=${photoUrl}></a>`;
+    searchResultsContainer.innerHTML += `<img src=${photoUrl}>`;
+    //console.log(searchResultsContainer);
 }
 
 //  looping  the arry of the photos that we received from the fetching
@@ -30,7 +33,7 @@ function displayPhotos(photo){
 
 // Init the lightbox
 function initLightbox() {
-    GLightbox();
+    lightBox2();
 }
 
 // assign
