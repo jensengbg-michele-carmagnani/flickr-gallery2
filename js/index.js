@@ -16,7 +16,7 @@ function displayPhotos(photo){
   
 //https://farm{farm-id}.staticflickr.com/{server-id}/{id}_{secret}.jpg
 	
-    let photoUrl = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_c.jpg`;
+    let photoUrl = `https://farm${farm}.staticflickr.com/${server}/${id}_${secret}_z.jpg`;
 
     searchResultsContainer.innerHTML += `<img src=${photoUrl}>`;
     //console.log(searchResultsContainer);
@@ -53,19 +53,25 @@ async function getGallery(tagsValue,numberPics){
         initLightbox();
 
         // I'd like to set "the search results isnt loading anymore"
-
+       
         return(data);
     
     } catch(error){
-        alert('Unfortunatly occured and error please reload the page', error);
+        alert('Unfortunatly occured an error please reload the page', error);
         
         
      }
 }
-  
+  let cleanField = () =>{
+      document.getElementById('search-field').value = '';
+      document.getElementById('number-of-pics').value = '';
+  }
 
 searchButton.addEventListener('click', function() {
+
     let searchValue = document.querySelector('#search-field').value;
     let numberPics = document.querySelector('#number-of-pics').value;
     getGallery(searchValue,numberPics);
+    cleanField();
+    
 });
